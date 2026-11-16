@@ -1,7 +1,0 @@
-[build]
-  publish = "."
-
-[[headers]]
-  for = "/js/sql-wasm.wasm"
-  [headers.values]
-    Content-Type = "application/wasm"

@@ -4,12 +4,11 @@
 
 ## GitHub + Vercel
 
-1. ڕیپۆ: `basamdev/smartserve-pos-demo`
-2. Vercel ئەم فۆڵدەرە وەک Root Directory دەبڵاو دەکاتەوە.
-3. چوونەژوورەوە: بەڕێوەبەر `demo` / PIN `0000` — کاشێر `cashier` / PIN `0000`.
-4. دوای چوونەژوورەوە **داشبۆرد و هەموو پەڕەکان** دەردەکەون (کاڵا، پسووڵە، کڕیار، بەکارهێنەر، ڕێکخستن، کاشێر).
-
-چوونەژوورەوە: بەڕێوەبەر `demo` / PIN `0000` — کاشێر `cashier` / PIN `0000`.
+- GitHub: https://github.com/basamdev/smartserve-pos-demo
+- Vercel (زیندوو): https://smartserve-pos-demo.vercel.app
+- هەژمار: `basamdev` (هەمان GitHub)
+- دوای چوونەژوورەوە **داشبۆرد و هەموو پەڕەکان** دەردەکەون (کاڵا، پسووڵە، کڕیار، بەکارهێنەر، ڕێکخستن، کاشێر).
+- چوونەژوورەوە: بەڕێوەبەر `demo` / PIN `0000` — کاشێر `cashier` / PIN `0000`.
 
 ## سنوور
 
