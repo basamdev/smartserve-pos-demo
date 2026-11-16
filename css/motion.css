@@ -1,0 +1,240 @@
+/* Premium micro-motion — cashier + whole POS. Off if prefers-reduced-motion. */
+
+html.ui-motion {
+  --ui-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --ui-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.ui-motion button,
+html.ui-motion .nav-item,
+html.ui-motion .header-btn,
+html.ui-motion .pos-fn-pill,
+html.ui-motion .panel-action-btn,
+html.ui-motion .suite-btn,
+html.ui-motion .product-item,
+html.ui-motion .banknote-card,
+html.ui-motion .category-tab,
+html.ui-motion .customer-tab,
+html.ui-motion .shift-nav-tab,
+html.ui-motion .stat-card,
+html.ui-motion .btn {
+  position: relative;
+  overflow: hidden;
+}
+
+html.ui-motion button i,
+html.ui-motion .nav-item i,
+html.ui-motion .header-btn i,
+html.ui-motion .pos-fn-pill i,
+html.ui-motion .panel-action-btn i,
+html.ui-motion .suite-btn i,
+html.ui-motion .btn i,
+html.ui-motion .stat-icon i,
+html.ui-motion .cart-title-wrap i,
+html.ui-motion .page-header h1 i,
+html.ui-motion .shift-nav-tab i {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.28s var(--ui-spring), filter 0.28s var(--ui-soft);
+  will-change: transform;
+}
+
+html.ui-motion button:hover > i,
+html.ui-motion button:hover i.fas,
+html.ui-motion button:hover i.fab,
+html.ui-motion .nav-item:hover > i,
+html.ui-motion .header-btn:hover > i,
+html.ui-motion .pos-fn-pill:hover > i,
+html.ui-motion .panel-action-btn:hover > i,
+html.ui-motion .suite-btn:hover > i,
+html.ui-motion .btn:hover > i,
+html.ui-motion .shift-nav-tab:hover > i,
+html.ui-motion .stat-card:hover .stat-icon i {
+  transform: translateY(-2px) scale(1.16) rotate(-10deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.22));
+}
+
+html.ui-motion .nav-item:hover > i {
+  transform: translateX(-3px) scale(1.18) rotate(-8deg);
+}
+
+html.ui-motion button:active > i,
+html.ui-motion .nav-item:active > i,
+html.ui-motion .pos-fn-pill:active > i,
+html.ui-motion .suite-btn:active > i {
+  transform: scale(0.86) rotate(8deg);
+}
+
+html.ui-motion .is-icon-pop > i,
+html.ui-motion .is-icon-pop i.fas,
+html.ui-motion .is-icon-pop i.fab {
+  animation: uiIconPop 0.48s var(--ui-spring);
+}
+
+@keyframes uiIconPop {
+  0% { transform: scale(1) rotate(0); }
+  32% { transform: scale(0.72) rotate(-14deg); }
+  62% { transform: scale(1.32) rotate(10deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+html.ui-motion .is-press {
+  transform: scale(0.97);
+  transition: transform 0.12s var(--ui-soft);
+}
+
+html.ui-motion .product-item:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+html.ui-motion .product-item.is-press {
+  transform: scale(0.96);
+}
+
+html.ui-motion .banknote-card:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+html.ui-motion .nav-item:hover {
+  transform: translateX(-2px);
+}
+
+html.ui-motion .stat-card.clickable:hover,
+html.ui-motion .stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.ui-ripple {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 3;
+  animation: uiRipple 0.58s ease-out forwards;
+}
+@keyframes uiRipple {
+  0% { transform: scale(0.4); opacity: 0.32; }
+  100% { transform: scale(18); opacity: 0; }
+}
+
+html.ui-motion input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]),
+html.ui-motion textarea,
+html.ui-motion select {
+  transition: border-color 0.22s var(--ui-soft), box-shadow 0.22s var(--ui-soft), background 0.22s var(--ui-soft), transform 0.22s var(--ui-soft);
+}
+html.ui-motion input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]):focus,
+html.ui-motion textarea:focus,
+html.ui-motion select:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent, #eab308) 55%, transparent),
+    0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+html.ui-motion .pos-table-scanner-bar .header-search:focus-within input {
+  box-shadow:
+    0 0 0 2px var(--pos-accent, #10b981),
+    0 0 22px color-mix(in srgb, var(--pos-accent, #10b981) 45%, transparent) !important;
+  animation: uiScanGlow 1.8s ease-in-out infinite;
+}
+html.ui-motion .pos-table-scanner-bar .header-search:focus-within .search-icon {
+  animation: uiBarcodeListen 1.15s ease-in-out infinite;
+  color: var(--pos-accent, #10b981);
+}
+@keyframes uiBarcodeListen {
+  0%, 100% { transform: translateY(-50%) scale(1); filter: drop-shadow(0 0 0 transparent); }
+  50% { transform: translateY(-50%) scale(1.22); filter: drop-shadow(0 0 8px var(--pos-accent, #10b981)); }
+}
+@keyframes uiScanGlow {
+  0%, 100% { box-shadow: 0 0 0 2px var(--pos-accent, #10b981), 0 0 14px color-mix(in srgb, var(--pos-accent, #10b981) 35%, transparent); }
+  50% { box-shadow: 0 0 0 3px var(--pos-accent, #10b981), 0 0 28px color-mix(in srgb, var(--pos-accent, #10b981) 55%, transparent); }
+}
+
+html.ui-motion .pos-scan-qty-box:focus-within {
+  transform: translateY(-1px);
+}
+html.ui-motion .pos-scan-qty-box:focus-within input {
+  animation: uiQtyPulse 1.4s ease-in-out infinite;
+}
+@keyframes uiQtyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pos-accent, #eab308) 0%, transparent); }
+  50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--pos-accent, #eab308) 28%, transparent); }
+}
+
+html.ui-motion .cart-empty-svg {
+  animation: uiEmptyBob 3.2s ease-in-out infinite;
+}
+html.ui-motion .cart-empty-frame {
+  animation: uiEmptyFrame 2.6s ease-in-out infinite;
+}
+@keyframes uiEmptyBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes uiEmptyFrame {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+html.ui-motion .cart-items-count.is-count-pop,
+html.ui-motion #heldSalesCountBadge.is-count-pop {
+  animation: uiCountPop 0.42s var(--ui-spring);
+}
+@keyframes uiCountPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+html.ui-motion .pos-fn-pill::after,
+html.ui-motion .suite-btn::after,
+html.ui-motion .panel-action-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.22) 48%, transparent 66%);
+  transform: translateX(120%);
+  pointer-events: none;
+}
+html.ui-motion .pos-fn-pill:hover::after,
+html.ui-motion .suite-btn:hover::after,
+html.ui-motion .panel-action-btn:hover::after {
+  animation: uiShine 0.7s var(--ui-soft);
+}
+@keyframes uiShine {
+  from { transform: translateX(120%); }
+  to { transform: translateX(-120%); }
+}
+
+html.ui-motion .customer-tab-add:hover i,
+html.ui-motion .customer-tab-close:hover i {
+  transform: scale(1.2);
+}
+html.ui-motion .customer-tab-close.is-icon-pop i {
+  animation: uiIconPop 0.42s var(--ui-spring);
+}
+
+html.ui-motion .modal-overlay.active .modal {
+  animation: uiModalIn 0.32s var(--ui-spring);
+}
+@keyframes uiModalIn {
+  from { transform: translateY(12px) scale(0.96); opacity: 0.6; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+html.ui-motion .clear-choice-card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.28s var(--ui-spring), box-shadow 0.28s var(--ui-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.ui-motion,
+  html.ui-motion * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
